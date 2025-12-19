@@ -4,9 +4,9 @@ import os, sys, re, json
 
 class Submission:
     @staticmethod
-    def send_answer(day, level, answer):
+    def send_answer(year , day, level, answer):
         session = Submission.get_session()
-        year = Submission.get_path().split(os.sep)[-1].split("-")[-1]
+        #year = Submission.get_path().split(os.sep)[-1].split("-")[-1]
 
         headers = Submission.get_headers()
         headers["Referer"] = f"https://adventofcode.com/{year}/day/{day}"

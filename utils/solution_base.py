@@ -3,19 +3,20 @@ import timeit
 
 
 class SolutionBase:
-    def __init__(self, day_num: int = -1, is_raw: bool = False, skip_test: bool = False, benchmark: bool = False):
+    def __init__(self, year_num: int = -1, day_num: int = -1, is_raw: bool = False, skip_test: bool = False, benchmark: bool = False):
+        self.year_num = year_num
         self.day_num = day_num
         self.is_raw = is_raw
         self.skip_test = skip_test
         self._benchmark = benchmark
         self.benchmark_times = []
-        self.data = PuzzleReader.get_puzzle_input(self.day_num, self.is_raw)
+        self.data = PuzzleReader.get_puzzle_input(self.year_num, self.day_num, self.is_raw)
 
     def get_test_input(self):
-        return PuzzleReader.get_test_input(self.day_num, self.is_raw)
+        return PuzzleReader.get_test_input(self.year_num, self.day_num, self.is_raw)
 
     def get_test_result(self, part_num):
-        return PuzzleReader.get_test_result(self.day_num, part_num)
+        return PuzzleReader.get_test_result(self.year_num,self.day_num, part_num)
 
     def solve(self, part_num: int):
         if not self.skip_test and not self._benchmark:
